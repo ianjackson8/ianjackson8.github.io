@@ -27,13 +27,50 @@
 								</header>
 
 							<!-- Content -->
-								<section>
+								<section style="padding-top: 0px !important;">
 									<header class="main">
-										<h1>Ping Pong Scoreboard</h1>
+										<a class="icon solid fa-code"> C++</a>
+										<a class="icon solid fa-microchip"> Arduino Uno R3</a>
+										<h1 style="margin-bottom: 20px !important;">Ping Pong Scoreboard</h1>
 									</header>
+									
+									<h2 id="intro" style="margin-bottom: 0px !important;">Introduction</h2>
+									<p>The goal of this project was to create a simple scoreboard using an Arduino Uno and an LED matrix. The scoreboard has three buttons: player one score, player two score, and reset button. The scoreboard can be powered by a 9V battery or USB connection. The source code can be found <a href="https://github.com/ianjackson8/PingPongScoreboard/blob/main/PingPongCounter.ino">here</a>.</p></p>
 
-                                    
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h2 style="margin-bottom: 0px !important;">Features</h2>
+											<ul>
+												<li>First player to reach a score of 21 wins</li>
+												<li>Player has to win by two to win</li>
+												<li>Prompts players to volley for first serve</li>
+												<li>Serve possession switches every 5 points</li>
+											</ul>
+										</div>
+										<div class="col-6 col-12-small">
+											<h2 style="margin-bottom: 0px !important;">Materials</h2>
+											<ul>
+												<li>Arduino Uno R3</li>
+												<li>8x32 MAX7219 LED Matrix</li>
+												<li>3 push buttons with jumper wire connections</li>
+												<li>Small breadboard power rail</li>
+												<li>Jumper wires</li>
+												<li>9V battery and connector</li>
+											</ul>
+										</div>
+									</div>
 
+									<h2 id="video">Working Prototype</h2>
+									<center><iframe width="560" height="315" src="https://www.youtube.com/embed/aaZko7Rt3oU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+
+									<h2 id="schematic" style="margin-bottom: 0px !important;">Schematic</h2>
+									<span class="image main"><img src="../images/pingpong_layout.png" alt=""/></span>
+									
+									<h2 id="future-work" style="margin-bottom: 0px !important;">Future Work</h2>
+									<ul>
+										<li>3D print casing and mount</li>
+										<li>Mount scoreboard to ping pong table</li>
+									</ul>
 								</section>
 
 						</div>
