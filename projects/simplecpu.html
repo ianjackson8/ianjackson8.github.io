@@ -33,10 +33,42 @@
 										<a class="icon solid fa-code"> VHDL</a>
 										<a class="icon solid fa-microchip"> Intel DE-10 Lite</a>
 										<a class="icon solid fa-desktop"> Quartus Prime</a>
-										<h1> Design of a Simple CPU</h1>
+										<h1 style="margin-bottom: 20px !important;"> Design of a Simple CPU</h1>
 									</header>
 
-                                    
+                                    <h2 id="intro" style="margin-bottom: 0px !important;">Introduction</h2>
+									<p>The final project of the Intorduction to Digital Logic Labratory was to design a simple CPU using VHDL. The parameters of the CPU were set for it to have three op codes and 32 bytes of memory. The final product was implemented on the Intel DE-10 Lite board. The full final report can be read <a href="../files/cpu-final-report.pdf">here</a>.</p>
+									
+									<h2 id="how-it-works">How It Works</h2>
+									<p>How the CPU works can be visualized by the finite state machine diagram below. The CPU fetches the first instruction from memory by loading the first address into the memory address register (MAR). The CPU fetches the data at the address that was loaded into the MAR and loads it into the memory data register in (MDRI). The op code from the data (three most signifigant bits) is decoded by the control unit (CU)</p>
+									<p>The CU enables certain components of the CPU based on the op code. The three op codes that the CPU has are LOADA, ADDA, STOREA. The LOADA operation takes the value of a specified address and loads it into the accumulator. ADDA is the operation that adds the value at a specified adddress to the value in the accumulator by bitwise additon. STOREA stores the value of the accumulator into memory at a specified address.</p>
+									<span class="img-main"><img src="../images/cpu-fsm.png"/ alt="" width="100%"></span>
+
+									<h2 id="block-diagram">Block Diagram</h2>
+									<p>All of the components of the CPU and their connections are summarized in the block diagram seen below. Each connection has the size of input in bits.</p>
+									<span class="img-main"><img src="../images/CPU.png" alt="" width=100%/></span>
+
+									<h2 id="resulta">Results</h2>
+									<p>The results can be viewed by either simulating the waveforms in Quartus Prime or loading the CPU code onto the Intel DE-10 Lite FPGA device.</p>
+									<p style="margin-bottom: 5px !important;"">The first 500 ns of the simulation can be seen in the image below. The accumulator value is first waveform seen displayed in decimal. For this demonstration the following commands were coded into the RAM:</p>
+									<ul>
+										<li>LOADA at address 5 (value of 6)</li>
+										<li>ADDA at address 3 (value of 7)</li>
+										<li>STOREA at address 7</li>
+										<li>LOADA at address 7 (value of 13)</li>
+									</ul>
+									<span class="img-main"><img src="../images/cpu-waveform.PNG" alt=""/ width="100%"></span>
+
+									<div class="row" style="margin-top: 25.666668px !important">
+										<div class="col-6 col-12-small">
+											<p>A picture of the CPU implemented on the DE-10 Lite board can be seen below. The binary value of the accumulator was decoded to display it onto the seven-segment display on the board. The right-most switch acted as the clock, which triggers on a negative edge.</p>
+											<p>The final version of the code featured eight operations, mixing between the three different op codes.</p>
+											<p>This CPU project has the oportunity to expand. Such as increasing the memory size, adding another ALU and accumulator, and coding more op codes for the ALU.</p>
+										</div>
+										<div class="col-6 col-12-small">
+											<span class="img-main"><img src="../images/cpu-de10.jpg" alt="" width=100%></span>
+										</div>
+									</div>
 
 								</section>
 
@@ -70,6 +102,7 @@
 											<li><a href="pingpongscoreboard.html">Ping Pong Scoreboard</a></li>
 											<li><a href="simplecpu.html">Design of a Simple CPU</a></li>
 											<li><a href="videocard.html">Breadboard Video Card</a></li>
+											<li><a href="cmosopt.html">CMOS Logic Optimization</a></li>
 											<li><a href="scorekeepapp.html">ScoreKeep App</a></li>
 										</ul>
 									</li>
