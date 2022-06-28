@@ -37,11 +37,11 @@
 									</header>
 
                                     <h2 id="intro" style="margin-bottom: 0px !important;">Introduction</h2>
-									<p>The final project of the Intorduction to Digital Logic Labratory was to design a simple CPU using VHDL. The parameters of the CPU were set for it to have three op codes and 32 bytes of memory. The final product was implemented on the Intel DE-10 Lite board. The full final report can be read <a href="../files/cpu-final-report.pdf">here</a>.</p>
+									<p>The final project of the Introduction to Digital Logic Labratory was to design a simple CPU using VHDL. The parameters of the CPU were set for it to have three op codes and 32 bytes of memory. The final product was implemented on the Intel DE-10 Lite board. The full final report can be read <a href="../files/cpu-final-report.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
 									
 									<h2 id="how-it-works">How It Works</h2>
-									<p>How the CPU works can be visualized by the finite state machine diagram below. The CPU fetches the first instruction from memory by loading the first address into the memory address register (MAR). The CPU fetches the data at the address that was loaded into the MAR and loads it into the memory data register in (MDRI). The op code from the data (three most signifigant bits) is decoded by the control unit (CU)</p>
-									<p>The CU enables certain components of the CPU based on the op code. The three op codes that the CPU has are LOADA, ADDA, STOREA. The LOADA operation takes the value of a specified address and loads it into the accumulator. ADDA is the operation that adds the value at a specified adddress to the value in the accumulator by bitwise additon. STOREA stores the value of the accumulator into memory at a specified address.</p>
+									<p>How the CPU works can be visualized by the finite state machine diagram below. The CPU fetches the first instruction from memory by loading the first address into the memory address register (MAR). The CPU fetches the data at the address that was loaded into the MAR and loads it into the memory data register in (MDRI). The op code from the data (three most significant bits) is decoded by the control unit (CU)</p>
+									<p>The CU enables certain components of the CPU based on the op code. The three op codes that the CPU has are LOADA, ADDA, STOREA. The LOADA operation takes the value of a specified address and loads it into the accumulator. ADDA is the operation that adds the value at a specified address to the value in the accumulator by bitwise additon. STOREA stores the value of the accumulator into memory at a specified address.</p>
 									<span class="img-main"><img src="../images/cpu-fsm.png"/ alt="" width="100%"></span>
 
 									<h2 id="block-diagram">Block Diagram</h2>
@@ -63,7 +63,7 @@
 										<div class="col-6 col-12-small">
 											<p>A picture of the CPU implemented on the DE-10 Lite board can be seen below. The binary value of the accumulator was decoded to display it onto the seven-segment display on the board. The right-most switch acted as the clock, which triggers on a negative edge.</p>
 											<p>The final version of the code featured eight operations, mixing between the three different op codes.</p>
-											<p>This CPU project has the oportunity to expand. Such as increasing the memory size, adding another ALU and accumulator, and coding more op codes for the ALU.</p>
+											<p>This CPU project has the opportunity to expand. Such as increasing the memory size, adding another ALU and accumulator, and coding more op codes for the ALU.</p>
 										</div>
 										<div class="col-6 col-12-small">
 											<span class="img-main"><img src="../images/cpu-de10.jpg" alt="" width=100%></span>
