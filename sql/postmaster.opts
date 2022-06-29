@@ -1,0 +1,1 @@
+/Applications/Postgres.app/Contents/Versions/14/bin/postgres "-D" "/Users/ianjackson/Documents/Summer 2022/ianjackson8.github.io/sql" "-p" "5432"
