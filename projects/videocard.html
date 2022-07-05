@@ -38,13 +38,184 @@
 							<!-- Content -->
 								<section style="padding-top: 0px !important;">
 									<header class="main">
-										<a class="icon solid fa-code"> Assembly, C++</a>
-										<a class="icon solid fa-microchip"> Various ICs, Arduino Mega</a>
-										<a class="icon solid fa-desktop"> Terminal, VS Code</a>
+										<a class="icon solid fa-code"> Python</a>
+										<a class="icon solid fa-microchip"> Various ICs</a>
+										<a class="icon solid fa-desktop"> Terminal</a>
 										<h1 style="margin-bottom: 20px !important;">Breadboard Video Card</h1>
 									</header>
 
-                                    Still working on this page! Check back later.
+                                    <h2 id="intro" style="margin-bottom: 0px !important;">Introduction</h2>
+									<p>The goal of this project is to make a video card on a breadboard. Most of the ICs used in this project are binary counters and NAND gates. The resolution of the breadboard is not the most impressive, but it is a working video card using ICs. The resolution it outputs to the monitor via a VGA cable is 800x600 pixels, but what displayed is a 100x75 pixel image. It supports 64 colors and runs at 10 MHz. The image data is read from an EEPROM.</p>
+									<p>All of the parts of the project and information was sourced from Ben Eater. I strongly encourage you check out his website at <a href="https://eater.net" target="_blank" rel="noopener noreferrer">eater.net</a>.</p>
+
+									<h2 id="how-works" style="margin-bottom: 0px !important;">How It Works</h2>
+									<p>The way monitors display information on a screen is like how CRT monitors work. Instead of an electon beam moving across the screen, the monitor paints a color at each pixel across the screen then moves down to the next line. The first step to creating a video card is determining what resolution the video card will run at. </p>
+									<p>Using the <a href="http://tinyvga.com/vga-timing/800x600@60Hz">timing information</a> for a VGA signal, it is easiest to "trick" the monitor it is in 800x600 resolution. The timing for this resolution is based on a 40 MHz pixel clock, given I have a 10 MHz clock the amount of pixels in the scanning part of the horizontal scan can be divided by 4 and all of the timing still works out. So in reality, the resolution of the image is 200x600 px. The timing of each scanline part can be seen in the table below.</p>
+									<p>Binary counters and logic gates are used to determine what part of the scanline the monitor is in; or when the monitor needs to display pixel data and when not to. The circuit diagram for the horizontal timing and vertical timing circuits is seen in the images below.</p>
+
+									<h2 id="timing" style="margin-bottom: 0px !important";>Timing Tables</h2>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h3 style="margin-bottom: 0px !important;">Horizontal Timing</h3>
+											<div class="table-wrapper">
+												<table class="alt">
+													<thread>
+														<tr>
+															<th>Scanline Part</th>
+															<th>Pixels</th>
+															<th>Time [&mu;s]</th>
+														</tr>
+													</thread>
+													<tbody>
+														<tr>
+															<td>Visible Area</td>
+															<td>200</td>
+															<td>20</td>
+														</tr>
+														<tr>
+															<td>Front Porch</td>
+															<td>10</td>
+															<td>1</td>
+														</tr>
+														<tr>
+															<td>Sync Pulse</td>
+															<td>32</td>
+															<td>3.2</td>
+														</tr>
+														<tr>
+															<td>Back Porch</td>
+															<td>22</td>
+															<td>2.2</td>
+														</tr>
+														<tr>
+															<td>Whole Line</td>
+															<td>264</td>
+															<td>26.4</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="col-6 col-12-small">
+											<h3 style="margin-bottom: 0px !important;">Vertical Timing</h3>
+											<div class="table-wrapper">
+												<table class="alt">
+													<thread>
+														<tr>
+															<th>Scanline Part</th>
+															<th>Lines</th>
+															<th>Time [&mu;s]</th>
+														</tr>
+													</thread>
+													<tbody>
+														<tr>
+															<td>Visible Area</td>
+															<td>600</td>
+															<td>15.84</td>
+														</tr>
+														<tr>
+															<td>Front Porch</td>
+															<td>1</td>
+															<td>0.0264</td>
+														</tr>
+														<tr>
+															<td>Sync Pulse</td>
+															<td>4</td>
+															<td>0.1056</td>
+														</tr>
+														<tr>
+															<td>Back Porch</td>
+															<td>23</td>
+															<td>0.6072</td>
+														</tr>
+														<tr>
+															<td>Whole Line</td>
+															<td>628</td>
+															<td>16.5792</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+
+									<h2 id="colors" style="margin-bottom: 0px !important";>Displaying Images in 64 Colors</h2>
+									<p>Now that the video card can determine wether to diplay a pixel or not and where it is on the screen, it now just needs an image to display. The image data is stored on an EEPROM, the AT28C256 (the same one used on the <a href="6502computer.html">6502 computer</a>. The horizontal and vertical positon are used too address the image data in the EEPROM.</p>
+									<p>Since the EEPROM only has 15 address lines, the image resolution has to be cut down. The most and least signifigant bit of the horizonal counter were dropped and the 3 least signifigant bits of the vertical counter was dropped. This cuts the final resolution of the image to be 100x75 pixels. The EEPROM can only output data when it is in the display intervals, so the inverted blanking outputs of the vertical and horizontal counters are NANDed to the chip enable (CE) input.</p>
+									<p>The RGB pins on the VGA allow a maximum voltage of 0.7V with 75&#937; of resistance. A voltage divider can be implemented such that the maximum voltage into the VGA is 0.7V and minimum into the VGA is 0V, with two voltages in between. This means that there are 64 different combinations of input voltages into the VGA, thus 64 colors.</p>
+
+									<h2 id="pictures" style="margin-bottom: 0px !important";>Diagrams & Pictures</h2>
+									<div class="image-container">
+										<div class="mySlides">
+											<div class="numbertext">1/6</div>
+												<center><img src="../images/vga-timing_diagram.png" style="height:566px"></center>
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">2/6</div>
+												<center><img src="../images/vga-htc.png" style="height:566px"></center>
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">3/6</div>
+												<center><img src="../images/vga-vtc.png" style="height:566px"></center>
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">4/6</div>
+												<center><img src="../images/vga-full_sch.png" style="height:566px"></center>
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">5/6</div>
+												<center><img src="../images/vga-colors.png" style="height:566px"></center>
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">6/6</div>
+												<center><img src="../images/vga-complete.jpg" style="height:566px"></center>
+										</div>
+
+										<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+										<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+										<div class="caption-container">
+											<p id="caption" style="margin-bottom: 10px !important; margin-top: 10px !important;""></p>
+										</div>
+
+										<div class="image-row">
+											<div class="image-col">
+												<img class="demo cursor" src="../images/vga-timing_diagram.png" style="width:100%" onclick="currentSlide(1)" alt="Timing Diagram">
+											</div>
+
+											<div class="image-col">
+												<img class="demo cursor" src="../images/vga-htc.png" style="width:100%" onclick="currentSlide(2)" alt="Horizonal Timing Circuit">
+											</div>
+
+											<div class="image-col">
+												<img class="demo cursor" src="../images/vga-vtc.png" style="width:100%" onclick="currentSlide(3)" alt="Vertical Timing Circuit">
+											</div>
+
+											<div class="image-col">
+												<img class="demo cursor" src="../images/vga-full_sch.png" style="width:100%" onclick="currentSlide(4)" alt="Full Video Card Schematic">
+											</div>
+
+											<div class="image-col">
+												<img class="demo cursor" src="../images/vga-colors.png" style="width:100%" onclick="currentSlide(5)" alt="Colors">
+											</div>
+
+											<div class="image-col">
+												<img class="demo cursor" src="../images/vga-complete.jpg" style="width:100%" onclick="currentSlide(6)" alt="Video Card Displaying a Finch in 64 Colors">
+											</div>
+										</div>
+									</div>
+
+									<h2 id="future" style="margin-bottom: 0px !important;">Future Work</h2>
+									<ul>
+										<li>Integrate with the W65C02S computer project so image data can be read from RAM.</li>
+										<li>Design a higher quality video card.</li>
+										<li>Look into a designing a PCB for this project.</li>
+									</ul>
 
 								</section>
 
@@ -82,7 +253,7 @@
 											<li><a href="evenstevenapp.html">Even Steven App</a></li>
 										</ul>
 									</li>
-									<li style="margin-bottom: 6.6px !important;"><a href="../files/CV-Ian-Jackson.pdf">CV</a></li>
+									<li style="margin-bottom: 6.6px !important;"><a href="../cv.html">CV</a></li>
 								</ul>
 							</nav>
 
