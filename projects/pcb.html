@@ -42,8 +42,109 @@
 										<h1 style="margin-bottom: 20px !important;">Printed Circuit Boards</h1>
 									</header>
 
-                                    Lipsum Oren
+                                    <p>All my electrical and computer engineering related projects thus far have been build on breadboards. This is a great way to explore and debug a circuit or system one is working on. But once the prototype is finisihed, it can be transfered onto a printed circuit board (PCB). PCBs are layers of conductive and insulated materials that connect each circuit component in a controlled and perminate manner. The production of PCBs is an intricate and involved process, but it all starts with the design of the circuit that is to be implemented.</p> 
 
+									<p>Up to this point, I have had no formal class on PCBs but wanted to learn more about them. I decided to hit the ground running and design my own PCB and have it fabricated. An easy enough start was to take a clock module and move it to a PCB. The clock module creates a clock pulse for prototyping computer systems, mainly used on the <a href="6502computer.html">6502 Computer</a> and the <a href="videocard.html">Breadboard Video Card</a>. It allows two different output types: steady pulse where the frequency is controlled by the potentiometer and a single step pulse which is controlled by the push button. This clock module uses the IC555 and the breadboard implementation is seen in the image below.</p>
+
+									<span class="image main"><img src="../images/clockModule_breadboard.jpeg"/></span>
+
+									<h2 id="design">Design</h2>
+
+									<p>The first step is to draw up the schematic in KiCAD. This schematic can be seen in the image slides below. Once the schematic was finished, it was time to get into the PCB work. Each component in the schematic needed a footprint. A footprint is how the software determines the sizing and placemnt of the through holes for the component. Since I have all of the components, I chose to use through hole technology (THT) footprints. Meaning the element's legs are stuck though the holes and soldered in place. The other option is surface mounted deviced (SMDs). This is how you see most curcuit components mounted in professional work. I do not have the SMD package of the components for this project, nor the equipment to place them on the board. Maybe next time.</p>
+
+									<h2 id="pandr">Place and Route</h2>
+
+									<p>After selecting a footprint for each component, it is time to move into the PCB editor in KiCAD. Here is where these 2D footprints are placed on a sheet and free to move around. Each component is arranged into a derised location. Once the footprints are placed, it is time to route. Routing is the process in which the physical connections between the elements are laid out. The whole process of placing footprints and routing connections is given the name "place and route."</p>
+
+									<p>There is a lot of things to take into consideration when it comes to place and route. The ideal PCB will have circuit element placement that reduces the wire distance which in turn reduces power consumption and doesn't violate timing constraints. There are professional softwares out there that does this work automatically. As a college student who wants to learn about PCBs on their own with a simple circuit, these considerations is not as much as a worry.</p>
+
+									<h2 id="finishingTouches">Putting it Together</h2>
+
+									<p>Design is done, place and route is done, and KiCAD ran checks to ensure all connections are made. Now it is time to fabricate the PCB. I had <a href="https://www.pcbway.com">PCBWay</a> fabricate and ship my design. After a couple of weeks, I recieved blank PCB boards of my design! The blank board is seen in the third image below. After soldering 110 connections, the PCB is finsihed and is seen in the fourth slide.</p>
+
+
+
+									<!-- Images -->
+									<div class="image-container">
+										<style>
+											.embed-container { position: relative; padding-bottom: 65%; height: 0px; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+										</style>
+										<style>
+											.embed-video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 200%; height: 200%; }
+										</style>
+										
+
+										<div class="mySlides">
+											<div class="numbertext">1/5</div>
+											<div class="embed-container">
+												<center><img src="../images/clockModule_schematic.jpg" style="width:85%"></center>
+											</div>
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">2/5</div>
+											<div class="embed-container">
+												<img src="../images/clockModule_PCB.png" style="width:100%">
+											</div>
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">3/5</div>
+											<div class="embed-container">
+												<img src="../images/clockModule_blank.jpeg" style="width:100%">
+											</div>
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">4/5</div>
+											<div class="embed-container">
+												<img src="../images/clockModule_done.jpeg" style="width:100%">
+											</div>
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">5/5</div>
+											<div class="embed-container">
+												<!--<center><iframe src="https://www.youtube.com/embed/8ja-r4Lt5fI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>-->
+												<div class="embed-container">
+													<video width="100%" controls>
+														<source src="../images/PCBDemo.mp4" type="video/mp4">
+														Your browswer does not support the video format
+													</video>
+												</div>
+												
+											</div>
+										</div>
+
+										<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+										<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+										<div class="caption-container">
+											<p id="caption" style="margin-bottom: 10px !important; margin-top: 10px !important;""></p>
+										</div>
+
+										<div class="image-row">
+											<div class="image-col">
+												<img class="demo cursor" src="../images/clockModule_schematic.jpg" style="width:100%" onclick="currentSlide(1)" alt="Clock Module Schematic">
+											</div>
+
+											<div class="image-col">
+												<img class="demo cursor" src="../images/clockModule_PCB.png" style="width:100%" onclick="currentSlide(2)" alt="PCB Design of Clock Module">
+											</div>
+
+											<div class="image-col">
+												<img class="demo cursor" src="../images/clockModule_blank.jpeg" style="width:100%" onclick="currentSlide(3)" alt="Blank PCB Board">
+											</div>
+
+											<div class="image-col">
+												<img class="demo cursor" src="../images/clockModule_done.jpeg" style="width:100%" onclick="currentSlide(4)" alt="Finished Clock Module PCB">
+											</div>
+
+											<div class="image-col">
+												<img class="demo cursor" src="../images/clockModule_thumbnail.jpg" style="width:100%" onclick="currentSlide(5)" alt="Demo Video">
+											</div>
+										</div>
+									</div>
 								</section>
 
 						</div>
