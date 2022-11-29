@@ -28,6 +28,7 @@
 								<header id="header">
 									<a href="../index.html" class="logo">Ian Jackson</a>
 									<ul class="icons">
+										<li><a href="files/CV-Ian-Jackson.pdf" class="icon solid fa-file"><span class="label"></span></a></li>
 										<li><a href="https://www.linkedin.com/in/ian-jackson-0748301b7/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 										<li><a href="https://github.com/ianjackson8" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 										<li><a href="https://twitter.com/ianjackson08" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -55,32 +56,32 @@
 											<button type="button" class="collapsible">W65C02S</button>
 											<div class="collapsible-content">
 												<p>As mentioned above, the 6502 is a CMOS 8-bit microprocessor. The processor has an 8-bit data bus, 16-bit address bus, 8-bit ALU, 16-bit program counter, and support for interrupts. The 6502 markets itself as a low-power chip great for SoC designs.</p>
-												<p style="margin-bottom: 10px !important;">The datasheet can be found <a href="../files/w65c02s.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
+												<p style="margin-bottom: 10px !important;">The data sheet can be found <a href="../files/w65c02s.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
 											</div>
 											<button type="button" class="collapsible">AT28C256</button>
 											<div class="collapsible-content">
-												<p>The AT28C256 is a CMOS 256 Kb eletronically erasable programmable ROM (EEPROM). Since the data of this computer is 8-bits, the EEPROM can store 32 KB of memory. The EEPROM for this computer is home to all of the instructions. To program the EEPROM, the TL866 II Plus EEPROM Programmer was used.</p>
-												<p style="margin-bottom: 10px !important;">The datasheet can be found <a href="../files/28c256.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
+												<p>The AT28C256 is a CMOS 256 Kb electronically erasable programmable ROM (EEPROM). Since the data of this computer is 8-bits, the EEPROM can store 32 KB of memory. The EEPROM for this computer is home to all of the instructions. To program the EEPROM, the TL866 II Plus EEPROM Programmer was used.</p>
+												<p style="margin-bottom: 10px !important;">The data sheet can be found <a href="../files/28c256.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
 											</div>
 											<button type="button" class="collapsible">62256B</button>
 											<div class="collapsible-content">
 												<p>The 62256B is a CMOS static RAM (SRAM) device. Like the AT28C256, the SRAM can store 256 Kb or 32 KB of information. The primary use of the SRAM on this computer is to house the stack, so subroutines could be used in the code.</p>
-												<p style="margin-bottom: 10px !important;">The datasheet can be found <a href="../files/hm62256b.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
+												<p style="margin-bottom: 10px !important;">The data sheet can be found <a href="../files/hm62256b.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
 											</div>
 											<button type="button" class="collapsible">W65C22S</button>
 											<div class="collapsible-content">
-												<p>The W65C22S is a versatile interface adapter (VIA) that allows the control of I/O. The VIA features two 8-bit peripheral ports that are bidirectional and 16 registers to interface with. The W65C22S is mainly used with other microprocessors in the 65xx family. Port B and 3-bits of port A are used for controling with the LCD screen. The remaining 5-bits of port A is used for button input.</p>
-												<p style="margin-bottom: 10px !important;">The datasheet can be found <a href="../files/w65c22.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
+												<p>The W65C22S is a versatile interface adapter (VIA) that allows the control of I/O. The VIA features two 8-bit peripheral ports that are bidirectional and 16 registers to interface with. The W65C22S is mainly used with other microprocessors in the 65xx family. Port B and 3-bits of port A are used for controlling with the LCD screen. The remaining 5-bits of port A is used for button input.</p>
+												<p style="margin-bottom: 10px !important;">The data sheet can be found <a href="../files/w65c22.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
 											</div>
 											<button type="button" class="collapsible">HD44780</button>
 											<div class="collapsible-content">
 												<p>The HD44780 is a dot matrix LCD controller that can be configured for many purposes. The controller is configured to be in 8-bit mode, 2-line display, and 5x8 font. All of these configurations are communicated through the VIA.</p>
-												<p style="margin-bottom: 10px !important;">The datasheet can be found <a href="../files/HD44780.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
+												<p style="margin-bottom: 10px !important;">The data sheet can be found <a href="../files/HD44780.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
 											</div>
 										</div>
 										<div class="col-6 col-12-small">
 											<h2 id="coding" style="margin-bottom: 0px !important;">Code Description</h2>
-											<p>The programs for the 6502 computer are written in x86 Assembly. All of the different instructions are found in the 6502 datasheet. Once the program is finished, it is loaded onto the EEPROM using the <a href="http://sun.hasenbraten.de/vasm/" target="_blank" rel="noopener noreferrer">VASM</a> assembler. All of the different programs used for the 6502 can he found <a href="https://github.com/ianjackson8/6502computer" target="_blank" rel="noopener noreferrer">here</a>.</p>
+											<p>The programs for the 6502 computer are written in x86 Assembly. All of the different instructions are found in the 6502 data sheet. Once the program is finished, it is loaded onto the EEPROM using the <a href="http://sun.hasenbraten.de/vasm/" target="_blank" rel="noopener noreferrer">VASM</a> assembler. All of the different programs used for the 6502 can he found <a href="https://github.com/ianjackson8/6502computer" target="_blank" rel="noopener noreferrer">here</a>.</p>
 											<h2 id="arduino" style="margin-bottom: 0px !important;">Debugging</h2>
 											<p>Like any project, it is inevitable to run into a bug. To help find the issue the address lines, data lines, read/write bit, and clock are hooked up to an Arduino Mega. The Arduino reads the inputs and outputs that to the serial monitor.</p>
 										</div>
@@ -90,7 +91,7 @@
 
 									<h2 id="how-it-works" style="margin-bottom: 0px !important;">How It Works</h2>
 									<p>The computer is reset using the RESB pin (active low), it then goes through a reset sequence lasting seven clock cycles. The computer is then initialized at addresses <code>$fffc-$fffd</code>. The code then directs the CPU to address <code>$8000</code>, which is the location of the start of the code on the EEPROM. Note that the code is stored on the EEPROM at address <code>$0000</code>, but to the CPU that is address <code>$8000</code>. This is because the CPU has 16 address lines, but the EEPROM has only 15 address lines. Using some combinational logic, the EEPROM is enabled when the CPU is looking for an address between <code>$8000-$ffff</code>. The dedication of addresses can be seen in the diagram below.</p>
-									<p>Once the computer is initialized, it starts fetching instructions from the EEPROM through the data line. The first instructions include sending bytes of data to the VIA to configure the LCD controller and the VIA: setting the data direction of port B to output and the three most signifigant bits of port A to output. The addresses dedicated to communicating to the VIA are <code>$6000-$600f</code>, since the VIA has 16 registers to interface with.</p>
+									<p>Once the computer is initialized, it starts fetching instructions from the EEPROM through the data line. The first instructions include sending bytes of data to the VIA to configure the LCD controller and the VIA: setting the data direction of port B to output and the three most significant bits of port A to output. The addresses dedicated to communicating to the VIA are <code>$6000-$600f</code>, since the VIA has 16 registers to interface with.</p>
 									<p>When the program outputs text to the LCD, it does so at one character at a time. To make the code more efficient, subroutines are used. Subroutines are possible only with the SRAM. The addresses dedicated to the SRAM are <code>$0000-$3fff</code>. When the subroutine is called, the CPU stores the address it was last at on the SRAM stack. The CPU then runs though each character, printing it on the display.</p>
 
 									<h2 id="diagrams" style="margin-bottom: 0px !important;">Diagrams & Pictures</h2>
@@ -142,7 +143,7 @@
 
 										<h2 id="future" style="margin-bottom: 0px !important;">Future Work</h2>
 										<ul>
-											<li>Use the inturrupt feature to make use of the buttons below the LCD as input.</li>
+											<li>Use the interrupt feature to make use of the buttons below the LCD as input.</li>
 											<li>Utilize more of the SRAM for something other than the stack.</li>
 											<li>Look into a designing a PCB for this project.</li>
 										</ul>
@@ -185,7 +186,7 @@
 											<!-- <li><a href="evenstevenapp.html">Even Steven App</a></li> -->
 										</ul>
 									</li>
-									<li style="margin-bottom: 6.6px !important;"><a href="../cv.html">CV</a></li>
+									<!-- <li style="margin-bottom: 6.6px !important;"><a href="../cv.html">CV</a></li> -->
 									<li style="margin-bottom: 6.6px !important;"><a href="../tutoring.html">Tutoring</a></li>
 								</ul>
 							</nav>
