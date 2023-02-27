@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ianjackson": {
+    "ianjackson8.github.io": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ianjackson",
+            "outputPath": "dist/ianjackson8.github.io",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ianjackson:build:production"
+              "browserTarget": "ianjackson8.github.io:build:production"
             },
             "development": {
-              "browserTarget": "ianjackson:build:development"
+              "browserTarget": "ianjackson8.github.io:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ianjackson:build"
+            "browserTarget": "ianjackson8.github.io:build"
           }
         },
         "test": {
