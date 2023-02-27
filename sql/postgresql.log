@@ -1,7 +1,0 @@
-2022-06-28 20:44:47.300 EDT [4275] LOG:  starting PostgreSQL 14.2 on aarch64-apple-darwin20.6.0, compiled by Apple clang version 12.0.5 (clang-1205.0.22.9), 64-bit
-2022-06-28 20:44:47.303 EDT [4275] LOG:  listening on IPv6 address "::1", port 5432
-2022-06-28 20:44:47.303 EDT [4275] LOG:  listening on IPv4 address "127.0.0.1", port 5432
-2022-06-28 20:44:47.303 EDT [4275] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
-2022-06-28 20:44:47.308 EDT [4276] LOG:  database system was shut down at 2022-06-28 20:44:47 EDT
-2022-06-28 20:44:47.312 EDT [4275] LOG:  database system is ready to accept connections
-2022-06-28 20:45:13.571 EDT [4309] FATAL:  database "test" does not exist
