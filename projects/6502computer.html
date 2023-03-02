@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>W65C02S Computer | Ian Jackson</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-T5N0T219R9"></script>
+		<script>
+ 			window.dataLayer = window.dataLayer || [];
+  			function gtag(){dataLayer.push(arguments);}
+  			gtag('js', new Date());
+  			gtag('config', 'G-T5N0T219R9');
+		</script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../index.html" class="logo">Ian Jackson</a>
+									<ul class="icons">
+										<li>
+											<div class="tooltip">
+												<a href="files/CV-Ian-Jackson.pdf" class="icon solid fa-file"><span class="label"></span></a>
+												<span class="tooltiptext">Resume</span>
+											</div>
+										</li>
+										<li>
+											<div class="tooltip">
+												<a href="https://www.linkedin.com/in/ian-jackson-0748301b7/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a>
+												<span class="tooltiptext">LinkedIn</span>
+											</div>
+										</li>
+										<li>
+											<div class="tooltip">
+												<a href="https://github.com/ianjackson8" class="icon brands fa-github"><span class="label">GitHub</span></a>
+												<span class="tooltiptext">GitHub</span>
+											</div>
+										</li>
+										<li>
+											<div class="tooltip">
+												<a href="https://twitter.com/ianjackson08" class="icon brands fa-twitter"><span class="label">Twitter</span></a>
+												<span class="tooltiptext">Twitter</span>
+											</div>
+										</li>
+										<li>
+											<div class="tooltip">
+												<a href="https://instagram.com/iansjackson08" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
+												<span class="tooltiptext">Instagram</span>
+											</div>
+										</li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section style="padding-top: 0px !important;">
+									<header class="main">
+										<a class="icon solid fa-code"> x86 Assembly, C++</a>
+										<a class="icon solid fa-microchip"> Various ICs, Arduino Mega</a>
+										<a class="icon solid fa-desktop"> Terminal, VS Code</a>
+										<h1 style="margin-bottom: 20px !important;">W65C02S Computer</h1>
+									</header>
+
+                                    <h2 id="intro" style="margin-bottom: 0px !important;">Introduction</h2>
+									<p>The goal of this project was to create an 8-bit computer centered around the W65C02S microprocessor. The 6502 microprocessor uses CMOS technology and provides 16 addressing pins, 8 data pins, 70 instructions, and more. The 6502 is far outdated, it was released in 1983. Some of the notable uses of the 6502 microprocessor are the Apple IIc and the Atari Lynx.</p>
+									<p>The computer is equipped with the AT28C256 EEPROM, 62256B SRAM, W65C22S versatile interface adapter, and the HD44780 LCD controller. The first goal of project was to print information on the dot matrix LCD screen. After finishing this goal, the new goal is to take advantage of the hardware interrupts to add I/O to computer.</p>
+									<p>All of the parts of the project and information was sourced from Ben Eater. I strongly encourage you check out his website at <a href="https://eater.net" target="_blank" rel="noopener noreferrer">eater.net</a>.</p>
+
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h2 id="hardware-desc" style="margin-bottom: 0px !important;">Hardware Description</h2>
+											<button type="button" class="collapsible">W65C02S</button>
+											<div class="collapsible-content">
+												<p>As mentioned above, the 6502 is a CMOS 8-bit microprocessor. The processor has an 8-bit data bus, 16-bit address bus, 8-bit ALU, 16-bit program counter, and support for interrupts. The 6502 markets itself as a low-power chip great for SoC designs.</p>
+												<p style="margin-bottom: 10px !important;">The data sheet can be found <a href="../files/w65c02s.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
+											</div>
+											<button type="button" class="collapsible">AT28C256</button>
+											<div class="collapsible-content">
+												<p>The AT28C256 is a CMOS 256 Kb electronically erasable programmable ROM (EEPROM). Since the data of this computer is 8-bits, the EEPROM can store 32 KB of memory. The EEPROM for this computer is home to all of the instructions. To program the EEPROM, the TL866 II Plus EEPROM Programmer was used.</p>
+												<p style="margin-bottom: 10px !important;">The data sheet can be found <a href="../files/28c256.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
+											</div>
+											<button type="button" class="collapsible">62256B</button>
+											<div class="collapsible-content">
+												<p>The 62256B is a CMOS static RAM (SRAM) device. Like the AT28C256, the SRAM can store 256 Kb or 32 KB of information. The primary use of the SRAM on this computer is to house the stack, so subroutines could be used in the code.</p>
+												<p style="margin-bottom: 10px !important;">The data sheet can be found <a href="../files/hm62256b.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
+											</div>
+											<button type="button" class="collapsible">W65C22S</button>
+											<div class="collapsible-content">
+												<p>The W65C22S is a versatile interface adapter (VIA) that allows the control of I/O. The VIA features two 8-bit peripheral ports that are bidirectional and 16 registers to interface with. The W65C22S is mainly used with other microprocessors in the 65xx family. Port B and 3-bits of port A are used for controlling with the LCD screen. The remaining 5-bits of port A is used for button input.</p>
+												<p style="margin-bottom: 10px !important;">The data sheet can be found <a href="../files/w65c22.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
+											</div>
+											<button type="button" class="collapsible">HD44780</button>
+											<div class="collapsible-content">
+												<p>The HD44780 is a dot matrix LCD controller that can be configured for many purposes. The controller is configured to be in 8-bit mode, 2-line display, and 5x8 font. All of these configurations are communicated through the VIA.</p>
+												<p style="margin-bottom: 10px !important;">The data sheet can be found <a href="../files/HD44780.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
+											</div>
+										</div>
+										<div class="col-6 col-12-small">
+											<h2 id="coding" style="margin-bottom: 0px !important;">Code Description</h2>
+											<p>The programs for the 6502 computer are written in x86 Assembly. All of the different instructions are found in the 6502 data sheet. Once the program is finished, it is loaded onto the EEPROM using the <a href="http://sun.hasenbraten.de/vasm/" target="_blank" rel="noopener noreferrer">VASM</a> assembler. All of the different programs used for the 6502 can he found <a href="https://github.com/ianjackson8/6502computer" target="_blank" rel="noopener noreferrer">here</a>.</p>
+											<h2 id="arduino" style="margin-bottom: 0px !important;">Debugging</h2>
+											<p>Like any project, it is inevitable to run into a bug. To help find the issue the address lines, data lines, read/write bit, and clock are hooked up to an Arduino Mega. The Arduino reads the inputs and outputs that to the serial monitor.</p>
+										</div>
+									</div>
+
+									<p style="margin-bottom: 0px !important;"> </p>
+
+									<h2 id="how-it-works" style="margin-bottom: 0px !important;">How It Works</h2>
+									<p>The computer is reset using the RESB pin (active low), it then goes through a reset sequence lasting seven clock cycles. The computer is then initialized at addresses <code>$fffc-$fffd</code>. The code then directs the CPU to address <code>$8000</code>, which is the location of the start of the code on the EEPROM. Note that the code is stored on the EEPROM at address <code>$0000</code>, but to the CPU that is address <code>$8000</code>. This is because the CPU has 16 address lines, but the EEPROM has only 15 address lines. Using some combinational logic, the EEPROM is enabled when the CPU is looking for an address between <code>$8000-$ffff</code>. The dedication of addresses can be seen in the diagram below.</p>
+									<p>Once the computer is initialized, it starts fetching instructions from the EEPROM through the data line. The first instructions include sending bytes of data to the VIA to configure the LCD controller and the VIA: setting the data direction of port B to output and the three most significant bits of port A to output. The addresses dedicated to communicating to the VIA are <code>$6000-$600f</code>, since the VIA has 16 registers to interface with.</p>
+									<p>When the program outputs text to the LCD, it does so at one character at a time. To make the code more efficient, subroutines are used. Subroutines are possible only with the SRAM. The addresses dedicated to the SRAM are <code>$0000-$3fff</code>. When the subroutine is called, the CPU stores the address it was last at on the SRAM stack. The CPU then runs though each character, printing it on the display.</p>
+
+									<h2 id="diagrams" style="margin-bottom: 0px !important;">Diagrams & Pictures</h2>
+									<div class="image-container">
+										<div class="mySlides">
+											<div class="numbertext">1/4</div>
+												<img src="../images/6502-block.jpeg" style="width:100%">
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">2/4</div>
+												<img src="../images/6502-address.jpeg" style="width:100%">
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">3/4</div>
+												<img src="../images/6502-fsm.jpeg" style="width:100%">
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">4/4</div>
+												<img src="../images/6502-cropped.jpg" style="width:100%">
+										</div>
+
+										<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  										<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+										<div class="caption-container">
+											<p id="caption" style="margin-bottom: 10px !important; margin-top: 10px !important;""></p>
+										</div>
+
+										<div class="image-row">
+											<div class="image-col">
+												<img class="demo cursor" src="../images/6502-block.jpeg" style="width:100%" onclick="currentSlide(1)" alt="Block diagram">
+											</div>
+
+											<div class="image-col">
+												<img class="demo cursor" src="../images/6502-address.jpeg" style="width:100%" onclick="currentSlide(2)" alt="Address map">
+											</div>
+
+											<div class="image-col">
+												<img class="demo cursor" src="../images/6502-fsm.jpeg" style="width:100%" onclick="currentSlide(3)" alt="Flow chart of printing a message to the LCD">
+											</div>
+
+											<div class="image-col">
+												<img class="demo cursor" src="../images/6502-cropped.jpg" style="width:100%" onclick="currentSlide(4)" alt="Finished 6502 computer">
+											</div>
+										</div>
+
+										<h2 id="future" style="margin-bottom: 0px !important;">Future Work</h2>
+										<ul>
+											<li>Use the interrupt feature to make use of the buttons below the LCD as input.</li>
+											<li>Utilize more of the SRAM for something other than the stack.</li>
+											<li>Look into a designing a PCB for this project.</li>
+										</ul>
+									</div>
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+				<div id="sidebar">
+					<div class="inner">
+
+						<!-- Search -->
+							<section id="search" class="alt">
+								<form method="post" action="#">
+									<input type="text" name="query" id="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Menu -->
+							<nav id="menu" style="padding-bottom: 0px !important;">
+								<header class="major">
+									<h2>Menu</h2>
+								</header>
+								<ul>
+									<li><a href="../index.html">Homepage</a></li>
+									<li><a href="../aboutme.html">About Me</a></li>
+									<li><a href="../experience.html">Experience</a></li>
+									<li>
+										<span class="opener">Projects</span>
+										<ul>
+											<li><a href="6502computer.html">W65C02S Computer</a></li>
+											<li><a href="pingpongscoreboard.html">Ping Pong Scoreboard</a></li>
+											<li><a href="simplecpu.html">Design of a Simple CPU</a></li>
+											<li><a href="videocard.html">Breadboard Video Card</a></li>
+											<li><a href="pcb.html">PCBs</a></li>
+											<!-- <li><a href="cmosopt.html">CMOS Logic Optimization</a></li> -->
+											<!-- <li><a href="evenstevenapp.html">Even Steven App</a></li> -->
+										</ul>
+									</li>
+									<!-- <li style="margin-bottom: 6.6px !important;"><a href="../cv.html">CV</a></li> -->
+									<li style="margin-bottom: 6.6px !important;"><a href="../tutoring.html">Tutoring</a></li>
+								</ul>
+							</nav>
+
+						<!-- Section -->
+							<section style="padding-bottom: 19.8px !important;">
+								<header class="major">
+									<h2>Contact Me</h2>
+								</header>
+								<p>Questions, comments, concerns? Contact me here.</p>
+								<ul class="contact">
+									<li class="icon solid fa-envelope"><a href="mailto:iansjackson8@gmail.com">ianjackson8@gmail.com</a></li>
+									<li class="icon solid fa-phone">(724) 505-1894</li>
+									<li class="icon solid fa-bug">Find a bug? Report it <a href="reportbug.html">here</a>.</li>
+								</ul>
+							</section>
+
+						<!-- Footer -->
+							<footer id="footer">
+								<p class="copyright">&copy; Ian Jackson. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								<p><a href="https://youtu.be/dQw4w9WgXcQ">Click me</a></p>
+							</footer>
+
+					</div>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
