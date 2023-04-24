@@ -28,10 +28,36 @@
 								<header id="header">
 									<a href="../index.html" class="logo">Ian Jackson</a>
 									<ul class="icons">
-										<li><a href="https://www.linkedin.com/in/ian-jackson-0748301b7/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-										<li><a href="https://github.com/ianjackson8" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-										<li><a href="https://twitter.com/ianjackson08" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://instagram.com/iansjackson08" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li>
+											<div class="tooltip">
+												<a href="files/CV-Ian-Jackson.pdf" class="icon solid fa-file"><span class="label"></span></a>
+												<span class="tooltiptext">Resume</span>
+											</div>
+										</li>
+										<li>
+											<div class="tooltip">
+												<a href="https://www.linkedin.com/in/ian-jackson-0748301b7/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a>
+												<span class="tooltiptext">LinkedIn</span>
+											</div>
+										</li>
+										<li>
+											<div class="tooltip">
+												<a href="https://github.com/ianjackson8" class="icon brands fa-github"><span class="label">GitHub</span></a>
+												<span class="tooltiptext">GitHub</span>
+											</div>
+										</li>
+										<li>
+											<div class="tooltip">
+												<a href="https://twitter.com/ianjackson08" class="icon brands fa-twitter"><span class="label">Twitter</span></a>
+												<span class="tooltiptext">Twitter</span>
+											</div>
+										</li>
+										<li>
+											<div class="tooltip">
+												<a href="https://instagram.com/iansjackson08" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
+												<span class="tooltiptext">Instagram</span>
+											</div>
+										</li>
 									</ul>
 								</header>
 
@@ -49,7 +75,7 @@
 									<p>All of the parts of the project and information was sourced from Ben Eater. I strongly encourage you check out his website at <a href="https://eater.net" target="_blank" rel="noopener noreferrer">eater.net</a>.</p>
 
 									<h2 id="how-works" style="margin-bottom: 0px !important;">How It Works</h2>
-									<p>The way monitors display information on a screen is like how CRT monitors work. Instead of an electon beam moving across the screen, the monitor paints a color at each pixel across the screen then moves down to the next line. The first step to creating a video card is determining what resolution the video card will run at. </p>
+									<p>The way monitors display information on a screen is like how CRT monitors work. Instead of an electron beam moving across the screen, the monitor paints a color at each pixel across the screen then moves down to the next line. The first step to creating a video card is determining what resolution the video card will run at. </p>
 									<p>Using the <a href="http://tinyvga.com/vga-timing/800x600@60Hz">timing information</a> for a VGA signal, it is easiest to "trick" the monitor into thinking it is in 800x600 resolution. The timing on the VGA website for this resolution is based on a 40 MHz pixel clock. I have a 10 MHz clock, so the amount of pixels in the scanning part of the horizontal scan can be divided by 4 and all of the timing still works out. So in reality, the resolution of the image is 200x600 px. The timing of each scanline part can be seen in the table below.</p>
 									<p>Binary counters and logic gates are used to determine what part of the scanline the monitor is in, or when the monitor needs to display pixel data and when not to. The circuit diagram for the horizontal timing and vertical timing circuits is seen in the images below.</p>
 
@@ -140,8 +166,8 @@
 									</div>
 
 									<h2 id="colors" style="margin-bottom: 0px !important";>Displaying Images in 64 Colors</h2>
-									<p>Now that the video card can determine whether to diplay a pixel or not and where it is on the screen, it now just needs an image to display. The image data is stored on an EEPROM, the AT28C256 (the same one used on the <a href="6502computer.html">6502 computer</a>. The horizontal and vertical positon are used to address the image data in the EEPROM.</p>
-									<p>Since the EEPROM only has 15 address lines, the image resolution has to be cut down. The most and least significant bit of the horizonal counter were dropped and the 3 least significant bits of the vertical counter were dropped. This cuts the final resolution of the image to be 100x75 pixels. The EEPROM can only output data when it is in the display intervals, so the inverted blanking outputs of the vertical and horizontal counters are NANDed to the chip enable (CE) input.</p>
+									<p>Now that the video card can determine whether to display a pixel or not and where it is on the screen, it now just needs an image to display. The image data is stored on an EEPROM, the AT28C256 (the same one used on the <a href="6502computer.html">6502 computer</a>. The horizontal and vertical position are used to address the image data in the EEPROM.</p>
+									<p>Since the EEPROM only has 15 address lines, the image resolution has to be cut down. The most and least significant bit of the horizontal counter were dropped and the 3 least significant bits of the vertical counter were dropped. This cuts the final resolution of the image to be 100x75 pixels. The EEPROM can only output data when it is in the display intervals, so the inverted blanking outputs of the vertical and horizontal counters are NANDed to the chip enable (CE) input.</p>
 									<p>The RGB pins on the VGA allow a maximum voltage of 0.7V with 75&#937; of resistance. A voltage divider can be implemented such that the maximum voltage into the VGA is 0.7V and minimum into the VGA is 0V, with two voltages in between. This means that there are 64 different combinations of input voltages into the VGA, thus 64 colors.</p>
 
 									<h2 id="pictures" style="margin-bottom: 0px !important";>Diagrams & Pictures</h2>
@@ -273,7 +299,7 @@
 											<!-- <li><a href="evenstevenapp.html">Even Steven App</a></li> -->
 										</ul>
 									</li>
-									<li style="margin-bottom: 6.6px !important;"><a href="../cv.html">CV</a></li>
+									<!-- <li style="margin-bottom: 6.6px !important;"><a href="../cv.html">CV</a></li> -->
 									<li style="margin-bottom: 6.6px !important;"><a href="../tutoring.html">Tutoring</a></li>
 								</ul>
 							</nav>

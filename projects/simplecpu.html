@@ -28,10 +28,36 @@
 								<header id="header">
 									<a href="../index.html" class="logo">Ian Jackson</a>
 									<ul class="icons">
-										<li><a href="https://www.linkedin.com/in/ian-jackson-0748301b7/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-										<li><a href="https://github.com/ianjackson8" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-										<li><a href="https://twitter.com/ianjackson08" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://instagram.com/iansjackson08" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li>
+											<div class="tooltip">
+												<a href="files/CV-Ian-Jackson.pdf" class="icon solid fa-file"><span class="label"></span></a>
+												<span class="tooltiptext">Resume</span>
+											</div>
+										</li>
+										<li>
+											<div class="tooltip">
+												<a href="https://www.linkedin.com/in/ian-jackson-0748301b7/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a>
+												<span class="tooltiptext">LinkedIn</span>
+											</div>
+										</li>
+										<li>
+											<div class="tooltip">
+												<a href="https://github.com/ianjackson8" class="icon brands fa-github"><span class="label">GitHub</span></a>
+												<span class="tooltiptext">GitHub</span>
+											</div>
+										</li>
+										<li>
+											<div class="tooltip">
+												<a href="https://twitter.com/ianjackson08" class="icon brands fa-twitter"><span class="label">Twitter</span></a>
+												<span class="tooltiptext">Twitter</span>
+											</div>
+										</li>
+										<li>
+											<div class="tooltip">
+												<a href="https://instagram.com/iansjackson08" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
+												<span class="tooltiptext">Instagram</span>
+											</div>
+										</li>
 									</ul>
 								</header>
 
@@ -45,11 +71,11 @@
 									</header>
 
                                     <h2 id="intro" style="margin-bottom: 0px !important;">Introduction</h2>
-									<p>The final project of the Introduction to Digital Logic Labratory was to design a simple CPU using VHDL. The parameters of the CPU were set for it to have three op codes and 32 bytes of memory. The final product was implemented on the Intel DE-10 Lite board. The full final report can be read <a href="../files/cpu-final-report.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
+									<p>The final project of the Introduction to Digital Logic Laboratory was to design a simple CPU using VHDL. The parameters of the CPU were set for it to have three op codes and 32 bytes of memory. The final product was implemented on the Intel DE-10 Lite board. The full final report can be read <a href="../files/cpu-final-report.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
 									
 									<h2 id="how-it-works">How It Works</h2>
 									<p>How the CPU works can be visualized by the finite state machine diagram below. The CPU fetches the first instruction from memory by loading the first address into the memory address register (MAR). The CPU fetches the data at the address that was loaded into the MAR and loads it into the memory data register in (MDRI). The op code from the data (three most significant bits) is decoded by the control unit (CU)</p>
-									<p>The CU enables certain components of the CPU based on the op code. The three op codes that the CPU has are LOADA, ADDA, STOREA. The LOADA operation takes the value of a specified address and loads it into the accumulator. ADDA is the operation that adds the value at a specified address to the value in the accumulator by bitwise additon. STOREA stores the value of the accumulator into memory at a specified address.</p>
+									<p>The CU enables certain components of the CPU based on the op code. The three op codes that the CPU has are LOADA, ADDA, STOREA. The LOADA operation takes the value of a specified address and loads it into the accumulator. ADDA is the operation that adds the value at a specified address to the value in the accumulator by bitwise addition. STOREA stores the value of the accumulator into memory at a specified address.</p>
 									<span class="img-main"><img src="../images/cpu-fsm.png"/ alt="" width="100%"></span>
 
 									<h2 id="block-diagram">Block Diagram</h2>
@@ -115,7 +141,7 @@
 											<!-- <li><a href="evenstevenapp.html">Even Steven App</a></li> -->
 										</ul>
 									</li>
-									<li style="margin-bottom: 6.6px !important;"><a href="../cv.html">CV</a></li>
+									<!-- <li style="margin-bottom: 6.6px !important;"><a href="../cv.html">CV</a></li> -->
 									<li style="margin-bottom: 6.6px !important;"><a href="../tutoring.html">Tutoring</a></li>
 								</ul>
 							</nav>
